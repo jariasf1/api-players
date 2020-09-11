@@ -21,8 +21,15 @@ class Manager
         $this->container = $container;
     }
 
-    public function objectSave($data, $entity)
+    /**
+     * @param $data
+     * @param $entity
+     * @param false $edit
+     * @return array
+     */
+    public function objectSave($data, $entity, $edit = false)
     {
+        $result = [];
         $save = false;
         $em = $this->entityManager;
         $exist = $this->fromData($entity, $data);
@@ -31,8 +38,7 @@ class Manager
             $em->flush();
             $save = true;
         }
-
-        return $save;
+        return ['result' => $save, 'object' => $entity];
     }
 
     /**
@@ -55,5 +61,25 @@ class Manager
         }
 
         return $exist;
+    }
+
+    /**
+     * @param $object
+     *
+     * @return array
+     *
+     * @throws \ReflectionException
+     */
+    public function dismount($object)
+    {
+        $reflectionClass = new \ReflectionClass(\get_class($object));
+        $array = [];
+        foreach ($reflectionClass->getProperties() as $property) {
+            $property->setAccessible(true);
+            $array[$property->getName()] = $property->getValue($object);
+            $property->setAccessible(false);
+        }
+
+        return $array;
     }
 }

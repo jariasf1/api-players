@@ -41,7 +41,7 @@ class LocationController extends AbstractController
         $location = new Location();
         $data = $request->request->all();
         $save = $manager->objectSave($data, $location);
-        if (true == $save) {
+        if (true == $save['result']) {
             $status = 200;
             $response = 'success';
         }
@@ -69,7 +69,7 @@ class LocationController extends AbstractController
         }
         $data = $request->request->all();
         $save = $manager->objectSave($data, $location);
-        if (true == $save) {
+        if (true == $save['result']) {
             $status = 200;
             $response = 'success';
         }
@@ -80,7 +80,7 @@ class LocationController extends AbstractController
     }
 
     /**
-     * @Route("/delete/{id}", name="edit", methods={"POST"})
+     * @Route("/delete/{id}", name="delete", methods={"POST"})
      * @param int $id
      * @return JsonResponse
      */
