@@ -16,4 +16,4 @@ Ej: http://127.0.0.1:8000/team
 
 
 # Probar el proyecto:
-1- Importar la colección de Postman que se encuentra en la carpeta doc/ en la misma se encuentran ejemplo de cada una de las peticiones.
+1- Importar la colección de Postman que se encuentra en la carpeta doc/ en la misma se encuentran ejemplos de cada una de las peticiones.
