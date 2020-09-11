@@ -1,10 +1,12 @@
 # api-players
 Proyecto test.
 
-Instalación:
-Clonar el proyecto con Git clone
-Ejecutar composer install
-Volcar la salva de la bd, que se encuentra en la carpeta doc/
+# Instalación:
+1- Clonar el proyecto con Git clone
 
-Prodar proyecto:
-Importar la colección de postman que se encuentra en la carpeta doc/ en la misma se encuentran ejemplo de cada una de las peticiones.
+2- Ejecutar composer install
+
+3- Volcar la salva de la bd, que se encuentra en la carpeta doc/ o ejecutar doctrine:schema:update --force
+
+# Probar el proyecto:
+1- Importar la colección de Postman que se encuentra en la carpeta doc/ en la misma se encuentran ejemplo de cada una de las peticiones.
