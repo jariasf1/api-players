@@ -28,22 +28,53 @@ class PlayerRepository extends ServiceEntityRepository
             ;
     }
 
-    // /**
-    //  * @return Player[] Returns an array of Player objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @param int $team
+     * @return Player[] Returns an array of Player objects
+     */
+    public function findByTeam(int $team)
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('p.team = :val')
+            ->setParameter('val', $team)
             ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
+    /**
+     * @param int $location
+     * @return Player[] Returns an array of Player objects
+     */
+    public function findByLocation(int $location)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.location = :val')
+            ->setParameter('val', $location)
+            ->orderBy('p.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    /**
+     * @param int $location
+     * @param int $team
+     * @return Player[] Returns an array of Player objects
+     */
+    public function findByTeamAndLocation(int $team, int $location)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.location = :loc')
+            ->andWhere('p.team = :team')
+            ->setParameter('loc', $location)
+            ->setParameter('team', $team)
+            ->orderBy('p.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 
     /*
     public function findOneBySomeField($value): ?Player

@@ -1,0 +1,675 @@
+{
+	"info": {
+		"_postman_id": "7077a58b-55dd-488d-8ff6-cdd983974245",
+		"name": "Players",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Location",
+			"item": [
+				{
+					"name": "LocationIndex",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:8000/location",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"location"
+							]
+						},
+						"description": "LocationIndex"
+					},
+					"response": []
+				},
+				{
+					"name": "LocationNew",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "mioI",
+									"type": "text"
+								},
+								{
+									"key": "isActive",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://127.0.0.1:8000/location/new",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"location",
+								"new"
+							]
+						},
+						"description": "LocationNew"
+					},
+					"response": []
+				},
+				{
+					"name": "LocationEdit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "forward",
+									"type": "text"
+								},
+								{
+									"key": "isActive",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://127.0.0.1:8000/location/edit/4",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"location",
+								"edit",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LocationDelete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:8000/location/delete/1",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"location",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Team",
+			"item": [
+				{
+					"name": "TeamIndex",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:8000/team",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"team"
+							]
+						},
+						"description": "LocationIndex"
+					},
+					"response": []
+				},
+				{
+					"name": "TeamNew",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Athletic",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://127.0.0.1:8000/team/new",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"team",
+								"new"
+							]
+						},
+						"description": "LocationNew"
+					},
+					"response": []
+				},
+				{
+					"name": "TeamEditGet",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "forward",
+									"type": "text"
+								},
+								{
+									"key": "isActive",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://127.0.0.1:8000/team/edit/1",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"team",
+								"edit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TeamEditPost",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "AlávesEditIII",
+									"type": "text"
+								},
+								{
+									"key": "isActive",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://127.0.0.1:8000/team/edit/2",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"team",
+								"edit",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PlayerDelete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:8000/team/delete/3",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"team",
+								"delete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Player",
+			"item": [
+				{
+					"name": "PlayerIndex",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:8000/player",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"player"
+							]
+						},
+						"description": "LocationIndex"
+					},
+					"response": []
+				},
+				{
+					"name": "PlayerNew",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Ainara Arias",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "100000.00",
+									"type": "text"
+								},
+								{
+									"key": "team",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://127.0.0.1:8000/player/new",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"player",
+								"new"
+							]
+						},
+						"description": "LocationNew"
+					},
+					"response": []
+				},
+				{
+					"name": "PlayerEditGet",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "forward",
+									"type": "text"
+								},
+								{
+									"key": "isActive",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://127.0.0.1:8000/player/edit/2",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"player",
+								"edit",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PlayerEditPost",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Ainhoa Edited",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "team",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://127.0.0.1:8000/player/edit/2",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"player",
+								"edit",
+								"2"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Jose Edited",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PlayerDelete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:8000/player/delete/3",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"player",
+								"delete",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Filter",
+			"item": [
+				{
+					"name": "PlayersFromTeam with Currency",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:8000/filter/players-from-team/1?currency=USD",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"filter",
+								"players-from-team",
+								"1"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "USD"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PlayersFromLocation with Currency",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:8000/filter/players-from-location/1?currency=USD",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"filter",
+								"players-from-location",
+								"1"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "USD"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PlayersFromLocation without Currency",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:8000/filter/players-from-location/1",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"filter",
+								"players-from-location",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PlayersFromTeamAndLocation with Currency",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:8000/filter/players/team-2/location-1?currency=USD",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"filter",
+								"players",
+								"team-2",
+								"location-1"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "USD"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PlayersFromTeamAndLocation without Currency",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:8000/filter/players/team-2/location-1",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"filter",
+								"players",
+								"team-2",
+								"location-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PlayersFromTeam without Currency",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://127.0.0.1:8000/filter/players-from-team/1",
+							"protocol": "https",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"filter",
+								"players-from-team",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

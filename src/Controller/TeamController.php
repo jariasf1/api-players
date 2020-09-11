@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 /**
  * @Route("/team", name="team_")
  */
@@ -67,7 +66,7 @@ class TeamController extends AbstractController
         }
         $arrayTeam = $manager->dismount($team);
         $dataResponse = ['team' => $arrayTeam];
-        if ($request->getMethod() === 'POST'){
+        if ($request->getMethod() === 'POST') {
             $dataResponse = ['status' => 500, 'response' => 'fail', 'team' => null];
             $data = $request->request->all();
             $save = $manager->objectSave($data, $team);

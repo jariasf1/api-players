@@ -48,7 +48,7 @@ class PlayerController extends AbstractController
         $request->request->set('team', $team);
         $location = $em->getRepository(Location::class)->find($request->get('location'));
         $request->request->set('location', $location);
-        if(empty($team) || empty($location)){
+        if (empty($team) || empty($location)) {
             $this->createNotFoundException('No correct Team or Location');
         }
         $data = $request->request->all();
@@ -80,7 +80,7 @@ class PlayerController extends AbstractController
         }
         $arrayTeam = $serializer->serialize($player, 'json');
         $dataResponse = ['team' => $manager->jsonDecode($arrayTeam)];
-        if ($request->getMethod() === 'POST'){
+        if ($request->getMethod() === 'POST') {
             if ($request->get('team') !== null) {
                 $team = $em->getRepository(Team::class)->find($request->get('team'));
                 $request->request->set('team', $team);
