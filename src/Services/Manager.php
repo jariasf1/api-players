@@ -9,10 +9,10 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class Manager
 {
     /** @var EntityManagerInterface */
-    protected $entityManager;
+    private $entityManager;
 
     /** @var ContainerInterface */
-    protected $container;
+    private $container;
 
 
     public function __construct(EntityManagerInterface $entityManager, ContainerInterface $container)
@@ -24,10 +24,9 @@ class Manager
     /**
      * @param $data
      * @param $entity
-     * @param false $edit
      * @return array
      */
-    public function objectSave($data, $entity, $edit = false)
+    public function objectSave($data, $entity)
     {
         $result = [];
         $save = false;
@@ -81,5 +80,10 @@ class Manager
         }
 
         return $array;
+    }
+
+    public function jsonDecode(string $json)
+    {
+        return json_decode($json, true);
     }
 }

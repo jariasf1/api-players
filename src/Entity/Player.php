@@ -40,7 +40,7 @@ class Player
      *
      * @ORM\ManyToOne(targetEntity="Location")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="location", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="location", referencedColumnName="id", nullable=false)
      * })
      */
     private $location;
@@ -89,7 +89,7 @@ class Player
         return $this->location;
     }
 
-    public function setLocation(?Location $location): self
+    public function setLocation(Location $location): self
     {
         $this->location = $location;
 
@@ -106,5 +106,10 @@ class Player
         $this->team = $team;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }
