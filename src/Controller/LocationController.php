@@ -4,8 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Location;
 use App\Repository\LocationRepository;
+use App\Services\EntityServices\LocationService;
 use App\Services\Manager;
-use Doctrine\ORM\EntityNotFoundException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,14 +34,14 @@ class LocationController extends AbstractController
      * @param Manager $manager
      * @return JsonResponse
      */
-    public function new(Request $request, Manager $manager)
+    public function new(Request $request, Manager $manager): JsonResponse
     {
         $status = 500;
         $response = 'fail';
         $location = new Location();
         $data = $request->request->all();
         $save = $manager->objectSave($data, $location);
-        if (true == $save['result']) {
+        if (true === $save['result']) {
             $status = 200;
             $response = 'success';
         }
@@ -58,7 +58,7 @@ class LocationController extends AbstractController
      * @param int $id
      * @return JsonResponse
      */
-    public function edit(Request $request, Manager $manager, int $id)
+    public function edit(Request $request, Manager $manager, int $id): JsonResponse
     {
         $status = 500;
         $response = 'fail';
@@ -69,7 +69,7 @@ class LocationController extends AbstractController
         }
         $data = $request->request->all();
         $save = $manager->objectSave($data, $location);
-        if (true == $save['result']) {
+        if (true === $save['result']) {
             $status = 200;
             $response = 'success';
         }
@@ -84,16 +84,14 @@ class LocationController extends AbstractController
      * @param int $id
      * @return JsonResponse
      */
-    public function delete(int $id)
+    public function delete(LocationService $locationService, int $id): JsonResponse
     {
-        $em = $this->getDoctrine()->getManager();
-        $location = $em->getRepository(Location::class)->find($id);
+        $location = $locationService->find($id);
         if (empty($location)) {
             throw $this->createNotFoundException('Location not found');
         }
         try {
-            $em->remove($location);
-            $em->flush();
+            $locationService->remove($location);
             $status = 200;
             $response = 'success';
         } catch (\Exception $exception) {

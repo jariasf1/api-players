@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Team;
 use App\Repository\TeamRepository;
+use App\Services\EntityServices\TeamService;
 use App\Services\Manager;
+use ReflectionException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +22,7 @@ class TeamController extends AbstractController
      * @param TeamRepository $teamRepository
      * @return JsonResponse
      */
-    public function index(TeamRepository $teamRepository)
+    public function index(TeamRepository $teamRepository): JsonResponse
     {
         return $this->json([
             'teams' => $teamRepository->findHidrateAll(),
@@ -33,7 +35,7 @@ class TeamController extends AbstractController
      * @param Manager $manager
      * @return JsonResponse
      */
-    public function new(Request $request, Manager $manager)
+    public function new(Request $request, Manager $manager): JsonResponse
     {
         $status = 500;
         $response = 'fail';
@@ -56,11 +58,11 @@ class TeamController extends AbstractController
      * @param Manager $manager
      * @param int $id
      * @return JsonResponse
+     * @throws ReflectionException
      */
-    public function edit(Request $request, Manager $manager, int $id)
+    public function edit(Request $request, Manager $manager, TeamService $teamService, int $id): JsonResponse
     {
-        $em = $this->getDoctrine()->getManager();
-        $team = $em->getRepository(Team::class)->find($id);
+        $team = $teamService->find($id);
         if (empty($team)) {
             throw $this->createNotFoundException('Team not found');
         }
@@ -71,7 +73,12 @@ class TeamController extends AbstractController
             $data = $request->request->all();
             $save = $manager->objectSave($data, $team);
             if (true == $save['result']) {
-                $dataResponse = ['status' => 200, 'method' => $request->getMethod(), 'response' => 'success', 'team' => $manager->dismount($save['object'])];
+                $dataResponse = [
+                    'status' => 200,
+                    'method' => $request->getMethod(),
+                    'response' => 'success',
+                    'team' => $manager->dismount($save['object'])
+                ];
             }
         }
 
@@ -80,19 +87,18 @@ class TeamController extends AbstractController
 
     /**
      * @Route("/delete/{id}", name="delete", methods={"POST"})
+     * @param TeamService $teamService
      * @param int $id
      * @return JsonResponse
      */
-    public function delete(int $id)
+    public function delete(TeamService $teamService, int $id): JsonResponse
     {
-        $em = $this->getDoctrine()->getManager();
-        $team = $em->getRepository(Team::class)->find($id);
+        $team = $teamService->find($id);
         if (empty($team)) {
             throw $this->createNotFoundException('Team not found');
         }
         try {
-            $em->remove($team);
-            $em->flush();
+            $teamService->remove($team);
             $status = 200;
             $response = 'success';
         } catch (\Exception $exception) {
